@@ -40,7 +40,9 @@ const CarSchema = new mongoose.Schema({
         required: true
     }
 
-})
+}, 
+{versionKey: false}
+)
 
 const car = mongoose.model('Car', CarSchema)
 module.exports = car;
