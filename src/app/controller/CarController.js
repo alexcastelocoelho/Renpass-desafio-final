@@ -21,7 +21,7 @@ class CarController {
 
     async listone(req, res) {
         try {
-            const result = await CarService.getById(req.params.iod)
+            const result = await CarService.getById(req.params.id)
             return res.status(200).json(result)
         } catch (error) {
             return res.status(400).json(error)
