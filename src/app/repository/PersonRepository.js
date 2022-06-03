@@ -1,26 +1,26 @@
-const PersonSchema = require('../schema/PersonSchema')
+const PersonSchema = require('../schema/PersonSchema');
 
 class PersonRepository {
-    async createPerson(payload){
-        return await PersonSchema.create(payload)
-    }
+	async createPerson(payload){
+		return await PersonSchema.create(payload);
+	}
     
-    async listPersons(payload) {
-        return await PersonSchema.find(payload)
-    }
+	async listPersons(payload) {
+		return await PersonSchema.find(payload);
+	}
 
-    async getPerson(payload) {
-        return await PersonSchema.findById(payload)
-    }
+	async getPerson(payload) {
+		return await PersonSchema.findById(payload);
+	}
 
-    async updatePerson(id, payload) {
-        return await PersonSchema.findByIdAndUpdate(id, payload)
-    }
+	async updatePerson(id, payload) {
+		return await PersonSchema.findByIdAndUpdate(id, payload);
+	}
 
-    async deletePerson(payload) {
-        return await PersonSchema.findByIdAndDelete(payload)
-    }
+	async deletePerson(payload) {
+		return await PersonSchema.findByIdAndDelete(payload);
+	}
 
 }
 
-module.exports = new PersonRepository()
+module.exports = new PersonRepository();
