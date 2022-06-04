@@ -37,7 +37,8 @@ const CarSchema = new mongoose.Schema({
 	],
 	passengersQtd: {
 		type: Number,
-		required: true
+		required: true,
+		min: [1, 'must have at least one passenger']
 	}
 
 }, 
