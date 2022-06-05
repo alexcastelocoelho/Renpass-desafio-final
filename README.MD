@@ -2,7 +2,7 @@
 
 ##  👨‍💻   Alex Coelho 
 
-### creating a REST API for cryptocurrency wallets. using node, express, sequelize with mysql
+### creating a REST API for the Renpass.uol car rental company 
 ### Node version used
 ```
 v10.20.1
@@ -16,7 +16,6 @@ v10.20.1
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
-    "moment": "^2.29.3",
     "mongoose": "^6.3.5"
     "eslint": "^8.17.0",
     "nodemon": "^2.0.16"
@@ -25,7 +24,7 @@ v10.20.1
 ## get project and run locally
 1. clone the project
  ```
- git clone <my-url>
+ git clone https://github.com/alexcastelocoelho/Renpass-desafio-final
  ```
 2. install dependencies
  ```
