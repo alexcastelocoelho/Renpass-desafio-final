@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const PersonRepository = require('../repository/PersonRepository');
 
 class PersonService {

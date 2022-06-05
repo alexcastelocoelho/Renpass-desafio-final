@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const CarRepository = require('../repository/CarRepository');
 
 class CarService {
@@ -10,7 +11,7 @@ class CarService {
 		const result = await CarRepository.listCars(payload);
 		return result;
 	}
-
+	
 	async getById(payload) {
 		const result = await CarRepository.getCar(payload);
 		return result; 
