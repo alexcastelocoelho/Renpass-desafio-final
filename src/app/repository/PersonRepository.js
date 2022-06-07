@@ -21,6 +21,10 @@ class PersonRepository {
 		return await PersonSchema.findByIdAndDelete(payload);
 	}
 
+	async checkemail(email) {
+		return await PersonSchema.find({email}).select('+password');
+	}
+
 }
 
 module.exports = new PersonRepository();
