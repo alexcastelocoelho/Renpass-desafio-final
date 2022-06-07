@@ -6,7 +6,25 @@ class CarRepository {
 	}
     
 	async listCars(payload) {
-		return await CarSchema.find(payload);
+		const pagination = {
+			totalDocs: 'total',
+			docs: 'vehicles',
+			page: 'offset',
+			totalPages: 'offsets',
+			prevPage: false,
+			nextPage: false,
+			pagingCounter: false,
+			meta: false,
+			hasPrevPage: false,
+			hasNextPage: false
+		};
+		const options = {
+			limit:100,
+			offset: 1,
+			customLabels: pagination 
+		};
+
+		return await CarSchema.paginate(payload, options, {});
 	}
 
 	async getCar(payload) {
