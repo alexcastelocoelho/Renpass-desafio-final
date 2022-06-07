@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
 			birthday: Joi.string().required(),
 			email: Joi.string().email().required(),
 			password: Joi.string().min(6).required(),
-			candrive: Joi.string().valid('yes', 'no').required()
+			canDrive: Joi.string().valid('yes', 'no').required()
 			
 		});
 
