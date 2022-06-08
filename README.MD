@@ -13,10 +13,15 @@ v10.20.1
 ```
 ### Libs
 ```
+    "@joi/date": "^2.1.0",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
-    "mongoose": "^6.3.5"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.5",
+    "mongoose-paginate-v2": "^1.6.3"
     "eslint": "^8.17.0",
     "nodemon": "^2.0.16"
 ````
@@ -34,8 +39,17 @@ v10.20.1
  ```
  npm start
  ```
+create an .env file and set the environment variables. use the .env.example file as a reference to set
+ ```
+    DB_HOST=
+    DB_USER=
+    DB_PASS=
+    DB_COLLECTION=
+
+ ```
  
 ## endpoints aplication 
+##### use the demo.md file to see examples of how you should insert into the postman body to use the endpoints below
 
 * endpoints car
  ```
@@ -52,5 +66,9 @@ v10.20.1
  get -> ('/api/v1/person/:id) - list a person
  put -> ('/api/v1/person/:id) - update person
  delete -> ('/api/v1/person/:id) - delete person
- 
+ ```
+* endpoint authenticate
+```
+post -> ('/api/v1/authenticate/') - create authenticate
+``` 
 
