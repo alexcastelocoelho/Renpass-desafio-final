@@ -5,7 +5,8 @@ module.exports = async (req, res, next) => {
 		
 		const validPerson = Joi.object({
 			name:Joi.string().min(3).required(),
-			cpf: Joi.string().required(),
+			// eslint-disable-next-line no-useless-escape
+			cpf: Joi.string().pattern(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/).message('use the format xxx.xxx.xx-xx').required(),
 			birthday: Joi.date().format('DD/MM/YYYY').required(),
 			email: Joi.string().email().required(),
 			password: Joi.string().min(6).required(),
