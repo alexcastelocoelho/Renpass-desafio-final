@@ -22,7 +22,7 @@ class PersonRepository {
 	}
 
 	async checkemail(email) {
-		return await PersonSchema.find({email}).select('+password');
+		return await PersonSchema.findOne({email}).select('+password');
 	}
 
 }
