@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const PersonRepository = require('../repository/PersonRepository');
-
+const NotExist = require('../errors/personErrors/NotExist');
 class PersonService {
 	async create(payload) {
 		const result = await PersonRepository.createPerson(payload);
@@ -14,6 +14,9 @@ class PersonService {
 
 	async getById(payload) {
 		const result = await PersonRepository.getPerson(payload);
+		if(!result) {
+			throw new NotExist(payload);
+		}
 		return result; 
 	}
 

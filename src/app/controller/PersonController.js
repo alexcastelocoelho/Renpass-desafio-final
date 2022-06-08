@@ -24,7 +24,10 @@ class PersonController {
 			const result = await PersonService.getById(req.params.id);
 			return res.status(200).json(result);
 		} catch (error) {
-			return res.status(400).json(error);
+
+			return res.status(400).json({
+				description: error.description, name: error.message
+			});
 		}
 	}
 
