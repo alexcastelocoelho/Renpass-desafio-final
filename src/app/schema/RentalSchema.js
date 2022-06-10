@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const RentalSchema = new mongoose.Schema({
-
+	
+    
 	name: {
 		type: String,
 		required: true
@@ -19,7 +20,7 @@ const RentalSchema = new mongoose.Schema({
 
 	address: [
 		{
-            
+			_id: false,
 			zipCode: {
 				type: String,
 				required: true
