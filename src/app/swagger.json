@@ -91,6 +91,95 @@
                     }
                 }
             }
+        },
+        "api/v1/person ": {
+            "post": {
+                "summary": "register a person",
+                "description": "route to register a person",
+                "tags": ["person"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/person": {
+            "get": {
+                "summary": "list persons",
+                "description": "route to list people",
+                "tags": ["person"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/person/:id": {
+            "get": {
+                "summary": "search for registered person",
+                "description": "route to search for registered person",
+                "tags": ["person"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+
+            "put": {
+                "summary": "update registered person",
+                "description": "route to update registered person",
+                "tags": ["person"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete person",
+                "description": "route to delete person",
+                "tags": ["person"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/authenticate ": {
+            "post": {
+                "summary": "User authentication",
+                "description": "route for user authentication",
+                "tags": ["authenticate"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            
+                        }
+                    }
+                }
+            }
         }
         
         
