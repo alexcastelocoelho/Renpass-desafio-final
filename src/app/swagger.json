@@ -1,3 +1,99 @@
 {
-    
+    "openapi": "3.0.0",
+    "info": {
+        "title": "renpass.uol api for car rental",
+        "description":  "creation of a rest API called renpass.uol to perform car rental",
+        "termsOfService": "asds",
+        "contact": {
+            "name": "Alex Coelho",
+            "url": "https://github.com/alexcastelocoelho"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "main server"
+        }
+    ],
+    "paths": {
+        "api/v1/car ": {
+            "post": {
+                "summary": "register a car",
+                "description": "route to register a car",
+                "tags": ["car"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/car": {
+            "get": {
+                "summary": "list cars",
+                "description": "route to list cars",
+                "tags": ["car"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/car/:id": {
+            "get": {
+                "summary": "search for registered car",
+                "description": "route to search for registered car",
+                "tags": ["car"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+
+            "put": {
+                "summary": "update registered car",
+                "description": "route to update registered car",
+                "tags": ["car"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete car",
+                "description": "route to delete car",
+                "tags": ["car"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+    }
+   
 }
