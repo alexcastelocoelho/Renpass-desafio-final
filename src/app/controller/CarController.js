@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const CarService = require('../service/CarService');
 
 class CarController {
@@ -35,6 +36,20 @@ class CarController {
 		} catch (error) {
 			return res.status(400).json(error);
 		}
+	}
+	
+
+	async updatingAcessoryCar(req, res) {
+
+		try {
+			const result = await CarService.updateAcessory(req.params.id, req.params.idAccessori , req.body );    
+
+			return res.status(200).json(result);
+
+		} catch (error) {
+			return res.status(400).json(error);
+		}
+
 	}
     
 	async deleting(req, res) {
