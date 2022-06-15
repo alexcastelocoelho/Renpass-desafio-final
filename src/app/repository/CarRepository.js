@@ -35,6 +35,12 @@ class CarRepository {
 		return await CarSchema.findByIdAndUpdate(id, payload);
 	}
 
+	async updateCarAccessory(id, payload, accessories) {
+		
+		return await CarSchema.findOneAndUpdate({_id: id, 'accessories._id': accessories.description }, 
+			{ $set:	{'accessories.$.description': payload}} );	
+	}
+
 	async deleteCar(payload) {
 		return await CarSchema.findByIdAndDelete(payload);
 	}
