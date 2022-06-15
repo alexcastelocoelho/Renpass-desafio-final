@@ -26,7 +26,7 @@ v10.20.1
     "nodemon": "^2.0.16"
 ````
 
-## get project and run locally
+## :beginner: get project and run locally
 1. clone the project
  ```
  git clone https://github.com/alexcastelocoelho/Renpass-desafio-final
@@ -51,7 +51,7 @@ create an .env file and set the environment variables. use the .env.example file
 ## endpoints aplication 
 ##### use the demo.md file to see examples of how you should insert into the postman body to use the endpoints below
 
-* endpoints car
+* endpoints car :car:
  ```
  post -> ('/api/v1/car/) - create car
  get -> ('/api/v1/car/) - list cars
@@ -59,7 +59,7 @@ create an .env file and set the environment variables. use the .env.example file
  put -> ('/api/v1/car/:id) - update car
  delete -> ('/api/v1/car/:id) - delete car
  ```
- * endpoints person
+ * endpoints person 👨
  ```
  post -> ('/api/v1/person/) - create person
  get -> ('/api/v1/person/) - list persons
@@ -67,8 +67,11 @@ create an .env file and set the environment variables. use the .env.example file
  put -> ('/api/v1/person/:id) - update person
  delete -> ('/api/v1/person/:id) - delete person
  ```
-* endpoint authenticate
+* endpoint authenticate :old_key:
 ```
 post -> ('/api/v1/authenticate/') - create authenticate
 ``` 
 
+### :scroll: to check the API documentation, follow the steps below:
+* make sure the server is active in the terminal. if it is inactive, run `npm start` in terminal
+* open a browser of your choice. in the search bar type `http://localhost:3000/api-docs`. after that you can check the api documentation
