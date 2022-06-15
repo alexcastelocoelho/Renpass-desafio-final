@@ -25,7 +25,9 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            
+                            "schema": {
+                                "$ref": "#/components/schemas/car"
+                            }
                         }
                     }
                 }
@@ -183,6 +185,108 @@
         }
         
         
+    },
+    "components": {
+        "schemas": {
+            "car": {
+                "type": "object",
+                "properties": {
+                    "model": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "color": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "string"
+                    },
+                    "accessories": [          
+                        {
+                            "description": {
+                                "type": "String"
+                            }
+                        }
+                    ],
+                    "passengersQtd": {
+                        "type": "number"
+                    }
+                }
+            },
+            "person": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "String"
+                    },
+                    "cpf": {
+                        "type": "String"
+                    },
+                    "birthday": {
+                        "type": "String"
+                    },
+                    "email": {
+                        "type": "String"
+                    },
+                    "password": {
+                        "type": "String"
+                    },
+                    "candrive": {
+                        "type": "String"
+                    }
+                }
+            },
+            "rental": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "String"
+                    },
+                    "cnpj": {
+                        "type": "String"
+                    },
+                    "activities": {
+                        "type": "String"
+                    },
+                    "address": [
+                        {
+                            "zipCode": {
+                                "type": "String"
+                                
+                            },
+                            "number": {
+                                "type": "String"
+                            },
+                            "complement": {
+                                "type": "String"
+                            },
+                            "isfilial": {
+                                "type": "Boolean"
+                               
+                            },
+                            "street": {
+                                "type": "String"
+                            },
+                            "district": {
+                                "type": "String"
+                               
+                            },
+                            "city": {
+                                "type": "String"
+                                
+                            },
+                            "state": {
+                                "type": "String"
+                       
+                            }      
+
+                        }
+                    ]
+                }
+            }
+        }
     }
    
 }
