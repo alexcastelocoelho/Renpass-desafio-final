@@ -21,6 +21,10 @@ class CarService {
 		const result = await CarRepository.updateCar(paylaod, id);
 		return result;
 	}
+	async updateAcessory(paylaod, id, accessories ) {
+		const result = await CarRepository.updateCarAccessory(paylaod, id, accessories );
+		return result;
+	}
 
 	async delete(payload) {
 		const result = await CarRepository.deleteCar(payload); 
