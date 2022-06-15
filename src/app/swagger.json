@@ -27,7 +27,37 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/car"
+                            },
+                            "examples": {
+                                "car": {
+                                    "value": {
+                                        "model": "S10 2.8",
+                                        "type": "sedan",
+                                        "brand": "GM",
+                                        "color": "branco",
+                                        "year": "branco",
+                                        "accessories": [
+                                            {
+                                                "description": "ar-condicinado"
+                                            }
+                                        ],
+                                        "passengersQtd": 5
+                                    }
+                                }
                             }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/car"
+                            }
+                          }
                         }
                     }
                 }
@@ -102,7 +132,22 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            
+                            "schema": {
+                                "$ref": "#/components/schemas/person"
+                            },
+                            "examples": {
+                                "person": {
+                                    "value": {
+                                        "name": "joaozinho ",
+                                        "cpf": "131.147.860-49",
+                                        "birthday": "03/03/2021",
+                                        "email": "joazinho@email.com",
+                                        "password": "123456",
+                                        "canddrive": "ar-condicinado"                                          
+                                                                                
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -177,7 +222,118 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            
+                            "schema": {
+                                "$ref": "#/components/schemas/person"
+                            },
+                            "examples": {
+                                "person": {
+                                    "value": {                                        
+                                        "email": "joazinho@email.com",
+                                        "password": "123456"                                                                             
+                                                                              
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental ": {
+            "post": {
+                "summary": "register a rental company",
+                "description": "route to register a rental company",
+                "tags": ["rental"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/rental"
+                            },
+                            "examples": {
+                                "person": {
+                                    "value": {
+                                        "name": "joaozinho ",
+                                        "cnpj": "131.147.860-49",
+                                        "activities": "03/03/2021",
+                                        "address": [
+                                            {
+                                                "zipCode": "96200-200",                                                    
+                                                "number": "1234",                                                    
+                                                "complement": "Muro A",                                                
+                                                "isfilial": false,                                                 
+                                                "street": "Rua General Canabarro",                                                
+                                                "district": "Centro",                                               
+                                                "city": "Rio Grande",                                                
+                                                "state": "RS"                                               
+                                                
+                                            }
+                                        ]                                         
+                                                                                
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental": {
+            "get": {
+                "summary": "list all rental companies",
+                "description": "route to list all rental companies",
+                "tags": ["rental"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental/:id": {
+            "get": {
+                "summary": "search rental company by id",
+                "description": "route to search for rental company by id",
+                "tags": ["rental"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+
+            "put": {
+                "summary": "update registered rental company",
+                "description": "route to update registered rental company",
+                "tags": ["rental"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "remove registered rental company",
+                "description": "route to remove registered rental company",
+                "tags": ["rental"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+
+                            }
                         }
                     }
                 }
