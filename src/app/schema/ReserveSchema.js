@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const mongoosepaginate = require('mongoose-paginate-v2');
 const ReserveSchema = new mongoose.Schema({
 	id_user: {
-		type: String,
-		required:true
+		type: mongoose.Schema.Types.ObjectId, ref: 'Person',
+		required:true,
+		unique: true
 	},
     
 	data_start: {
@@ -19,12 +20,12 @@ const ReserveSchema = new mongoose.Schema({
 	},
     
 	id_car: {
-		type: String,
+		type: mongoose.Schema.Types.ObjectId, ref: 'Car',
 		required: true
 	},
     
 	id_rental: {
-		type: String,
+		type: mongoose.Schema.Types.ObjectId, ref: 'Rental',
 		required: true
 	},
 
