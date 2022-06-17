@@ -6,7 +6,28 @@ class ReserveRepository {
 	}
     
 	async listReserve(payload) {
-		return await ReserveSchema.find(payload);
+		const pagination = {
+			totalDocs: 'total',
+			docs: 'reserves',
+			page: 'offset',
+			totalPages: 'offsets',
+			prevPage: false,
+			nextPage: false,
+			pagingCounter: false,
+			meta: false,
+			hasPrevPage: false,
+			hasNextPage: false
+		};
+		const options = {
+			total: 346,
+			limit:100,
+			offset: 1,
+			offsets: 35,
+			customLabels: pagination 
+		};
+
+
+		return await ReserveSchema.paginate(payload, options, {});
 	}
 
 	async getReserve(payload) {

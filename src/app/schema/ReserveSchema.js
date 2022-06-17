@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-
+const mongoosepaginate = require('mongoose-paginate-v2');
 const ReserveSchema = new mongoose.Schema({
 	id_user: {
 		type: String,
@@ -37,7 +37,7 @@ const ReserveSchema = new mongoose.Schema({
 {versionKey: false}
 );
 
-
+ReserveSchema.plugin(mongoosepaginate);
 
 const reserve = mongoose.model('Reserve', ReserveSchema);
 module.exports = reserve;
