@@ -40,9 +40,12 @@ class CarController {
 	
 
 	async updatingAcessoryCar(req, res) {
+		
+		const {id, idaccessories} = req.params;
 
 		try {
-			const result = await CarService.updateAcessory(req.params.id, req.params.idAccessori , req.body );    
+			
+			const result = await CarService.updateAcessory(id, idaccessories, req.body );    
 
 			return res.status(200).json(result);
 
