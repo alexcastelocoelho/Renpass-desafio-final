@@ -1,10 +1,11 @@
 const PersonController = require('../app/controller/PersonController');
-const validateperson = require('../app/validations/PersonValidate');
+const ValidatePerson = require('../app/validations/person/PersonValidate');
+const ValidateUpdatePerson = require('../app/validations/person/PersonUpdateValidate');
 module.exports = (server, routes, prefix = '/api/v1/person') => {
-	routes.post('/', validateperson ,PersonController.creating);
+	routes.post('/', ValidatePerson ,PersonController.creating);
 	routes.get('/', PersonController.listing);
 	routes.get('/:id', PersonController.listone);
-	routes.put('/:id', PersonController.updating);
+	routes.put('/:id', ValidateUpdatePerson ,PersonController.updating);
 	routes.delete('/:id', PersonController.deleting);
 
 
