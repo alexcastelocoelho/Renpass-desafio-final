@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
 const PersonRepository = require('../repository/PersonRepository');
 const NotExist = require('../errors/personErrors/NotExist');
+const cpf = require('../utils/cpfvalid');
 class PersonService {
-	async create(payload) {
+	async create(payload) {		
+		
+		if(!cpf(payload.cpf)) {
+			throw {error: 'Invalid CPF, check the format or enter a valid CPF'};
+		}
 		const result = await PersonRepository.createPerson(payload);
 		return result;
 	}
