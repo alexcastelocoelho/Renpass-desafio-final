@@ -14,10 +14,15 @@ module.exports = async (req, res, next) => {
 		
 		});
 
-		const {error} = await validcar.validate(req.body, {abortEarly: true});
+		const {error} = await validcar.validate(req.body, {abortEarly: false});
 		if (error) throw error;
 		return next();
 	} catch (error){		
-		return res.status(400).json({Error: error.message});
+		return res.status(400).json({
+			errors: error.details.map((alert) => ({
+				description: alert.message,
+				name: alert.path.join('.')
+			}))
+		});
 	}
 };
