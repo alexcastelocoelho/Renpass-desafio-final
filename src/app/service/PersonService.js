@@ -25,8 +25,11 @@ class PersonService {
 		return result; 
 	}
 
-	async update(paylaod, id ) {
-		const result = await PersonRepository.updatePerson(paylaod, id);
+	async update(id, payload ) {
+		if(!cpf(payload.cpf)) {
+			throw {error: 'Invalid CPF, check the format or enter a valid CPF'};
+		}
+		const result = await PersonRepository.updatePerson(id, payload);
 		return result;
 	}
 
