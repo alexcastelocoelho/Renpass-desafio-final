@@ -68,28 +68,54 @@
                 "summary": "list cars",
                 "description": "route to list cars",
                 "tags": ["car"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "car",
+                        "in": "query",
+                        "description": "parameter to list cars",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "array",
+                                "items": {
+                                    "$ref":  "#/components/schemas/car"
+                                } 
                             }
+                          }
                         }
                     }
                 }
             }
         },
-        "api/v1/car/:id": {
+        "api/v1/car/{id}": {
             "get": {
                 "summary": "search for registered car",
                 "description": "route to search for registered car",
                 "tags": ["car"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to list a car",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "object",
+                                "$ref": "#/components/schemas/car"
                             }
+                          }
                         }
                     }
                 }
@@ -99,15 +125,56 @@
                 "summary": "update registered car",
                 "description": "route to update registered car",
                 "tags": ["car"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to update a car",
+                        "required": true
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-
+                                "$ref": "#/components/schemas/car"
+                            },
+                            "examples": {
+                                "car": {
+                                    "value": {
+                                        "model": "S10 2.8",
+                                        "type": "sedan",
+                                        "brand": "GM",
+                                        "color": "branco",
+                                        "year": "branco",
+                                        "accessories": [
+                                            {
+                                                "description": "ar-condicinado"
+                                            }
+                                        ],
+                                        "passengersQtd": 5
+                                    }
+                                }
                             }
                         }
                     }
                 }
+                
+                ,
+                "responses": {
+                    "200": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/car"
+                            }
+                          }
+                        }
+                    }
+                }
+                
             },
             "delete": {
                 "summary": "delete car",
@@ -440,6 +507,49 @@
 
                         }
                     ]
+                }
+            }, 
+            "reserve": {
+                "type": "object",
+                "properties": {
+                    "id_user": {
+                        "type": "String"
+                    },
+                    "data_start": {
+                        "type": "String"
+                    },
+                    "data_end": {
+                        "type": "String"
+                    },
+                    "id_car": {
+                        "type": "String"
+                    },
+                    "id_rental": {
+                        "type": "String"
+                    },
+                    "final_value": {
+                        "type": "String"
+                    }
+                }
+            },
+            "fleet": {
+                "type": "object",
+                "properties": {
+                    "id_car": {
+                        "type": "String"
+                    },
+                    "id_rental": {
+                        "type": "String"
+                    },
+                    "status": {
+                        "type": "String"
+                    },
+                    "daily_value": {
+                        "type": "String"
+                    },
+                    "plate": {
+                        "type": "String"
+                    }
                 }
             }
         }
