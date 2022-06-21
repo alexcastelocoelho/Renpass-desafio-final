@@ -163,7 +163,7 @@
                 ,
                 "responses": {
                     "200": {
-                        "description": "created",
+                        "description": "ok",
                         "content": {
                             "application/json": {
                             "schema": {
@@ -180,13 +180,17 @@
                 "summary": "delete car",
                 "description": "route to delete car",
                 "tags": ["car"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-
-                            }
-                        }
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a car",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted car"                        
                     }
                 }
             }
@@ -225,43 +229,110 @@
                 "summary": "list persons",
                 "description": "route to list people",
                 "tags": ["person"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "person",
+                        "in": "query",
+                        "description": "parameter to list persons",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "array",
+                                "items": {
+                                    "$ref":  "#/components/schemas/person"
+                                } 
                             }
+                          }
                         }
                     }
                 }
             }
         },
-        "api/v1/person/:id": {
+        "api/v1/person/{id}": {
             "get": {
                 "summary": "search for registered person",
                 "description": "route to search for registered person",
                 "tags": ["person"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to list a person",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "object",
+                                "$ref": "#/components/schemas/person"
                             }
+                          }
                         }
                     }
                 }
+                
             },
 
             "put": {
                 "summary": "update registered person",
                 "description": "route to update registered person",
                 "tags": ["person"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to update a person",
+                        "required": true
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-
+                                "$ref": "#/components/schemas/person"
+                            },
+                            "examples": {
+                                "car": {
+                                    "value": {
+                                        "model": "S10 2.8",
+                                        "type": "sedan",
+                                        "brand": "GM",
+                                        "color": "branco",
+                                        "year": "branco",
+                                        "accessories": [
+                                            {
+                                                "description": "ar-condicinado"
+                                            }
+                                        ],
+                                        "passengersQtd": 5
+                                    }
+                                }
                             }
+                        }
+                    }
+                }
+                
+                ,
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/person"
+                            }
+                          }
                         }
                     }
                 }
@@ -270,13 +341,17 @@
                 "summary": "delete person",
                 "description": "route to delete person",
                 "tags": ["person"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-
-                            }
-                        }
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a person",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted person"                        
                     }
                 }
             }
@@ -342,6 +417,19 @@
                             }
                         }
                     }
+                },
+                "responses": {
+                    "201": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/rental"
+                            }
+                          }
+                        }
+                    }
                 }
             }
         },
@@ -350,12 +438,26 @@
                 "summary": "list all rental companies",
                 "description": "route to list all rental companies",
                 "tags": ["rental"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "rental",
+                        "in": "query",
+                        "description": "parameter to list rentals",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "array",
+                                "items": {
+                                    "$ref":  "#/components/schemas/rental"
+                                } 
                             }
+                          }
                         }
                     }
                 }
@@ -366,12 +468,24 @@
                 "summary": "search rental company by id",
                 "description": "route to search for rental company by id",
                 "tags": ["rental"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to list a rental",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
                             "schema": {
-
+                                "type": "object",
+                                "$ref": "#/components/schemas/rental"
                             }
+                          }
                         }
                     }
                 }
@@ -381,12 +495,58 @@
                 "summary": "update registered rental company",
                 "description": "route to update registered rental company",
                 "tags": ["rental"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to update a rental",
+                        "required": true
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-
+                                "$ref": "#/components/schemas/rental"
+                            },
+                            "examples": {
+                                "rental": {
+                                    "value": {
+                                        "name": "rent a car",
+                                        "cnpj": "16.670.085/0001-55",
+                                        "activities": "aluguel de carros",
+                                                                            
+                                        "accessories": [
+                                            {
+                                                "zipCode": "96200200",
+                                                "number": "1234",
+                                                "complement": "muro vida",
+                                                "isfilial": "true",
+                                                "street": "rua dos barreiros",
+                                                "district": "centro",
+                                                "city": "são paulo",
+                                                "state": "parana"
+                                            }
+                                        ]
+                                       
+                                    }
+                                }
                             }
+                        }
+                    }
+                }
+                
+                ,
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/rental"
+                            }
+                          }
                         }
                     }
                 }
@@ -395,17 +555,334 @@
                 "summary": "remove registered rental company",
                 "description": "route to remove registered rental company",
                 "tags": ["rental"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a rental",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted rental"                        
+                    }
+                }
+            }
+        },
+        "api/v1/rental/{id}/reserve ": {
+            "post": {
+                "summary": "car rental",
+                "description": "route car rental",
+                "tags": ["reserve"],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-
+                                "$ref": "#/components/schemas/reserve"
+                            },
+                            "examples": {
+                                "reserve": {
+                                    "value": {                                        
+                                        "id_user": "b149e5bda4f24123g34396a07fd3098", 
+                                        "data_start": "20/11/2021", 
+                                        "data_end": "30/11/2021", 
+                                        "id_car": "b149e5bda4f24e25a12d396a45645398", 
+                                        "id_rental": "b149e5bda345232e25a12d396a07fd3098", 
+                                        "final_value": "500,00"                                                                           
+                                                                              
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+        },
+        "api/v1/rental/{id}/reserve": {
+            "get": {
+                "summary": "list reservations from a rental company",
+                "description": "route to list reservations from a rental company",
+                "tags": ["reserve"],
+                "parameters": [
+                    {
+                        "name": "reserve",
+                        "in": "query",
+                        "description": "parameter to list reservations from a rental company",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref":  "#/components/schemas/reserve"
+                                } 
+                            }
+                          }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental/{id}/reserve/{id}": {
+            "get": {
+                "summary": "Search booking by ID",
+                "description": "route to Search booking by ID",
+                "tags": ["reserve"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to Search booking by ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/reserve"
+                            }
+                          }
+                        }
+                    }
+                }
+                
+            },
+            "put": {
+                "summary": "Update reservation data by ID",
+                "description": "route to Update reservation data by ID",
+                "tags": ["reserve"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to Update reservation data by ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/reserve"
+                            },
+                            "examples": {
+                                "reserve": {
+                                    "value": {
+                                        "id_user": "b149e5bda4f24123g34396a07fd3098", 
+                                        "data_start": "20/11/2021", 
+                                        "data_end": "30/11/2021", 
+                                        "id_car": "b149e5bda4f24e25a12d396a45645398", 
+                                        "id_rental": "b149e5bda345232e25a12d396a07fd3098", 
+                                        "final_value": "500,00"  
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                ,
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/reserve"
+                            }
+                          }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "remove a reservation",
+                "description": "route to remove a reservation",
+                "tags": ["reserve"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to remove a reservation",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted reservation"                        
+                    }
+                }
+            }
+
+
+        },
+        "api/v1/rental/{id}/fleet ": {
+            "post": {
+                "summary": "Creation of a rental car fleet",
+                "description": "route to Creating a rental car fleet",
+                "tags": ["fleet"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/fleet"
+                            },
+                            "examples": {
+                                "fleet": {
+                                    "value": {                                        
+                                        "id_car": "b149e5bdggg34396a07fd3098",
+                                        "id_rental":"asdasda149e5bdagga12d396a07fd3098", 
+                                        "status": "available", 
+                                        "daily_value": "100,00",
+                                        "plate": "ABC1234"                                                                 
+                                                                              
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental/{id}/fleet": {
+            "get": {
+                "summary": "List the entire fleet of a given rental company",
+                "description": "route to List the entire fleet of a given rental company",
+                "tags": ["fleet"],
+                "parameters": [
+                    {
+                        "name": "fleet",
+                        "in": "query",
+                        "description": "parameter to list fleet",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref":  "#/components/schemas/fleet"
+                                } 
+                            }
+                          }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/rental/{id}/fleet/{id}": {
+            "get": {
+                "summary": "Search fleet by rental company ID",
+                "description": "route to Search fleet by rental company ID",
+                "tags": ["fleet"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to Search fleet by rental company ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/fleet"
+                            }
+                          }
+                        }
+                    }
+                }
+                
+            },
+            "put": {
+                "summary": "Update data from any fleet by ID of a particular rental company",
+                "description": "route to Update data from any fleet by ID of a particular rental company",
+                "tags": ["fleet"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to Update data from any fleet",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/fleet"
+                            },
+                            "examples": {
+                                "fleet": {
+                                    "value": {
+                                        "id_car": "b149e5bdggg34396a07fd3098",
+                                        "id_rental":"asdasda149e5bdagga12d396a07fd3098", 
+                                        "status": "available", 
+                                        "daily_value": "100,00",
+                                        "plate": "ABC1234"  
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                ,
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/fleet"
+                            }
+                          }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove a car from the fleet of a particular rental company",
+                "description": "route to Remove a car from the fleet of a particular rental company",
+                "tags": ["fleet"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to Remove a car from the fleet of a particular rental company",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted fleet for rental"                        
+                    }
+                }
+            }
+
+
         }
+
         
         
     },
