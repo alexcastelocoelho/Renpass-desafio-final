@@ -8,7 +8,11 @@ class Database {
 
 	connect() {
 		return mongoose.connect(
-			`mongodb://${config.database.host}/${config.database.collection}`
+			//`mongodb://${config.database.host}/${config.database.collection}`
+			
+			//`mongodb://${config.database.host}/${config.database.collection}`
+			`mongodb+srv://root:${config.database.password}@compass.gemwekh.mongodb.net/?retryWrites=true&w=majority`
+			
 		);
 	}
 
