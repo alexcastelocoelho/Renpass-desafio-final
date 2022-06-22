@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const mongoosepaginate = require('mongoose-paginate-v2');
 const RentalSchema = new mongoose.Schema({
 	
     
@@ -60,6 +60,6 @@ const RentalSchema = new mongoose.Schema({
 },
 {versionKey: false}
 );
-
+RentalSchema.plugin(mongoosepaginate);
 const rental = mongoose.model('Rental', RentalSchema);
 module.exports = rental;

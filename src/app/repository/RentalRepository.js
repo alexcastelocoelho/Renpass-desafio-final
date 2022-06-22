@@ -6,7 +6,24 @@ class RentalRepository {
 	}
     
 	async listRents(payload) {
-		return await RentalSchema.find(payload);
+		const pagination = {
+			totalDocs: 'total',
+			docs: 'rentals',
+			page: 'offset',
+			totalPages: 'offsets',
+			prevPage: false,
+			nextPage: false,
+			pagingCounter: false,
+			meta: false,
+			hasPrevPage: false,
+			hasNextPage: false
+		};
+		const options = {
+			limit:100,
+			offset: 0,
+			customLabels: pagination 
+		};
+		return await RentalSchema.paginate(payload, options, {});
 	}
 
 	async getRental(payload) {
