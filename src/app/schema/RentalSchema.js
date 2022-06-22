@@ -63,3 +63,5 @@ const RentalSchema = new mongoose.Schema({
 RentalSchema.plugin(mongoosepaginate);
 const rental = mongoose.model('Rental', RentalSchema);
 module.exports = rental;
+
+//deploy

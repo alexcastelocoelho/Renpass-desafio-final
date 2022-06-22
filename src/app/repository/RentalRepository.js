@@ -1,5 +1,5 @@
 const RentalSchema = require('../schema/RentalSchema');
-
+//deploy
 class RentalRepository {
 	async createRental(payload){
 		return await RentalSchema.create(payload);
