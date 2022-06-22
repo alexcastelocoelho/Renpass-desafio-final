@@ -21,7 +21,7 @@ class FleetRepository {
 		const options = {
 			total: 346,
 			limit:100,
-			offset: 1,
+			offset: 0,
 			offsets: 35,
 			customLabels: pagination 
 		};
