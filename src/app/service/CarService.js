@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const CarRepository = require('../repository/CarRepository');
-
+const IdNotFound = require('../errors/CarErrors/IdNotFound');
 class CarService {
 	async create(payload) {
 		const result = await CarRepository.createCar(payload);
@@ -19,6 +19,9 @@ class CarService {
 
 	async update(paylaod, id ) {
 		const result = await CarRepository.updateCar(paylaod, id);
+		if(!result) {
+			throw new IdNotFound(id);
+		}
 		return result;
 	}
 	async updateAcessory(paylaod, id, idaccessories ) {
