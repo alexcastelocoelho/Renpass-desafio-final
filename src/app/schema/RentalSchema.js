@@ -65,3 +65,4 @@ const rental = mongoose.model('Rental', RentalSchema);
 module.exports = rental;
 
 //deploy
+//deploy

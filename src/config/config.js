@@ -12,3 +12,4 @@ module.exports = {
 		collection: process.env.DB_COLLECTION,
 	}
 };
+//deploy

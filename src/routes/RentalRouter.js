@@ -11,3 +11,4 @@ module.exports = (server, routes, prefix = '/api/v1/rental') => {
 	server.use(prefix, routes);
 
 };
+//deploy

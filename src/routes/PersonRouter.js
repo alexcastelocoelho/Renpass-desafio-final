@@ -12,3 +12,4 @@ module.exports = (server, routes, prefix = '/api/v1/person') => {
 	server.use(prefix, routes);
 
 };
+//deploy

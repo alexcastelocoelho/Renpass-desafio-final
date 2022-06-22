@@ -6,3 +6,4 @@ module.exports = (server, routes, prefix = '/api/v1/authenticate') => {
 	server.use(prefix, routes);
 
 };
+//deploy

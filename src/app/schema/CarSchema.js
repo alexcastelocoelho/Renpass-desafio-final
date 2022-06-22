@@ -49,3 +49,4 @@ CarSchema.plugin(mongoosepaginate);
 
 const car = mongoose.model('Car', CarSchema);
 module.exports = car;
+//deploy

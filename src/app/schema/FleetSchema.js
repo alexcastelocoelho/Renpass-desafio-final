@@ -38,3 +38,4 @@ FleetSchema.plugin(mongoosepaginate);
 
 const fleet = mongoose.model('Fleet', FleetSchema);
 module.exports = fleet;
+//deploy
