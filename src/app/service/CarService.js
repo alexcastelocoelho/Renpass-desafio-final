@@ -14,6 +14,9 @@ class CarService {
 	
 	async getById(payload) {
 		const result = await CarRepository.getCar(payload);
+		if(!result) {
+			throw new IdNotFound(payload);
+		}
 		return result; 
 	}
 
