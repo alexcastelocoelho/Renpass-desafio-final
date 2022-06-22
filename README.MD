@@ -1,4 +1,5 @@
 #  Renpass.uol - PB Node.js - Compass.Uol
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)	![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 ##  👨‍💻   Alex Coelho 
 
@@ -14,33 +15,37 @@ v10.20.1
 ### Libs
 ```
     "@joi/date": "^2.1.0",
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
     "mongoose": "^6.3.5",
-    "mongoose-paginate-v2": "^1.6.3"
+    "mongoose-paginate-v2": "^1.6.3",
+    "swagger-ui-express": "^4.4.0"
     "eslint": "^8.17.0",
     "nodemon": "^2.0.16"
 ````
 
 ## :beginner: get project and run locally
-1. clone the project
+1️⃣. clone the project
  ```
  git clone https://github.com/alexcastelocoelho/Renpass-desafio-final
  ```
-2. install dependencies
+2️⃣. install dependencies
  ```
  npm install
  ```
-3. execute the project
+3️⃣. execute the project
  ```
- npm start
+ npm run dev
  ```
 create an .env file and set the environment variables. use the .env.example file as a reference to set
  ```
+    APP_URL=
     DB_HOST=
     DB_USER=
     DB_PASS=
@@ -71,6 +76,36 @@ create an .env file and set the environment variables. use the .env.example file
 ```
 post -> ('/api/v1/authenticate/') - create authenticate
 ``` 
+
+ * endpoints rental 🚘
+ ```
+ post -> ('/api/v1/rental/) - create rental
+ get -> ('/api/v1/rental/) - list rentals
+ get -> ('/api/v1/rental/:id) - list a rental
+ put -> ('/api/v1/rental/:id) - update rental
+ delete -> ('/api/v1/rental/:id) - delete rental
+ ```
+
+ * endpoints reserve 📄
+ ```
+ post -> ('/api/v1/rental/:id/reserve) - create reserve
+ get -> ('/api/v1/rental/:id/reserve) - list reserves
+ get -> ('/api/v1/rental/:id/reserve/:id) - list a reserve
+ put -> ('/api/v1/rental/:id/reserve/:id) - update reserve
+ delete -> ('/api/v1/rental/:id/reserve/:id) - delete reserve
+ ```
+
+  * endpoints fleet 🚥
+ ```
+ post -> ('/api/v1/rental/:id/fleet) - create fleet
+ get -> ('/api/v1/rental/:id/fleet) - list fleets
+ get -> ('/api/v1/rental/:id/fleet/:id) - list a fleet
+ put -> ('/api/v1/rental/:id/fleet/:id) - update fleet
+ delete -> ('/api/v1/rental/:id/fleet/:id) - delete fleet
+ ```
+
+
+
 
 ### :scroll: to check the API documentation, follow the steps below:
 * make sure the server is active in the terminal. if it is inactive, run `npm start` in terminal
