@@ -20,7 +20,7 @@ class CarRepository {
 		};
 		const options = {
 			limit:100,
-			offset: 1,
+			offset: 0,
 			customLabels: pagination 
 		};
 
