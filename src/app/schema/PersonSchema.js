@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bycript = require('bcryptjs');
+const mongoosepaginate = require('mongoose-paginate-v2');
 const PersonSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -38,6 +39,8 @@ const PersonSchema = new mongoose.Schema({
 },
 {versionKey: false}
 );
+
+PersonSchema.plugin(mongoosepaginate);
 
 PersonSchema.pre('save', async function(next) {
 	const hash = await bycript.hash(this.password, 10);

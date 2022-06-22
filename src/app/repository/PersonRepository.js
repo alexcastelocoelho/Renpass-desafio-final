@@ -6,7 +6,25 @@ class PersonRepository {
 	}
     
 	async listPersons(payload) {
-		return await PersonSchema.find(payload);
+		const pagination = {
+			totalDocs: 'total',
+			docs: 'people',
+			page: 'offset',
+			totalPages: 'offsets',
+			prevPage: false,
+			nextPage: false,
+			pagingCounter: false,
+			meta: false,
+			hasPrevPage: false,
+			hasNextPage: false
+		};
+		const options = {
+			limit:100,
+			offset: 0,
+			customLabels: pagination 
+		};
+		
+		return await PersonSchema.paginate(payload, options, {});
 	}
 
 	async getPerson(payload) {
