@@ -1,5 +1,5 @@
 const Joi = require('joi').extend(require('@joi/date'));
-
+const cpf = require('../../utils/REGEX').cpf;
 
 module.exports = async (req, res, next) => {
 	try{
@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
 		const validPerson = Joi.object({
 			name:Joi.string().min(3).required(),
 			// eslint-disable-next-line no-useless-escape
-			cpf: Joi.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/).required(),
+			cpf: Joi.string().regex(cpf).required(),
 			birthday: Joi.date().format('DD/MM/YYYY').required(),
 			email: Joi.string().email().required(),
 			password: Joi.string().min(6).required(),
