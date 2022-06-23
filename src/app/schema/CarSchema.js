@@ -31,7 +31,8 @@ const CarSchema = new mongoose.Schema({
 	accessories: [          
 		{
 			description: {
-				type: String
+				type: String,
+				required: true
 			}
 		}
 	],
