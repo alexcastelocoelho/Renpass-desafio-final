@@ -1,7 +1,13 @@
 const RentalRepository = require('../repository/RentalRepository');
 const ViacCep = require('../utils/ViaCep');
+const Cnpj = require('../utils/CnpjValid');
 class RentalService {
 	async create(payload) {
+		if(!Cnpj(payload.cnpj)) {
+			throw {error: 'invalid cnpj, check the format or enter a valid one'};
+		}
+
+
 		let x = 0;
 		const fieldAddress = payload.address;
 		
