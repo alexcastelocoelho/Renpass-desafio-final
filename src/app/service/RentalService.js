@@ -1,5 +1,5 @@
 const RentalRepository = require('../repository/RentalRepository');
-const ViacCep = require('../validations/ViaCep');
+const ViacCep = require('../utils/ViaCep');
 class RentalService {
 	async create(payload) {
 		let x = 0;
