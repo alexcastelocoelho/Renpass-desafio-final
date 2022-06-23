@@ -1,6 +1,6 @@
 const Joi = require('joi').extend(require('@joi/date'));
 const objectid = require('../../utils/REGEX').objectid;
-
+const Enumstatus = require('../../utils/ENUMS/EnumObject').fleet;
 module.exports = async (req, res, next) => {
 	try{
 		
@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
 			
 			id_car: Joi.string().regex(objectid),
 			id_rental: Joi.string().regex(objectid),
-			status: Joi.string().valid('available', 'unavailable', 'rented'),
+			status: Joi.string().valid(...Enumstatus),
 			daily_value: Joi.number(),
 			plate: Joi.string()
 			
