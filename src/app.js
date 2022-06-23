@@ -1,7 +1,7 @@
 const express = require('express');
 const router = require('./routes');
 const swagger = require('swagger-ui-express');
-const swaggerDocs = require('./app/swagger.json');
+const swaggerDocs = require('./app/docs/swagger.json');
 require('./infra/database/mongo');
 class App {
 	constructor() {
