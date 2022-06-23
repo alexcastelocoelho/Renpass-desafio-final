@@ -1,13 +1,13 @@
 const Joi = require('joi').extend(require('@joi/date'));
-
+const objectid = require('../../utils/REGEX').objectid;
 
 module.exports = async (req, res, next) => {
 	try{
 		
 		const validFleet = Joi.object({
 			
-			id_car: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
-			id_rental: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+			id_car: Joi.string().regex(objectid),
+			id_rental: Joi.string().regex(objectid),
 			status: Joi.string().valid('available', 'unavailable', 'rented'),
 			daily_value: Joi.number(),
 			plate: Joi.string()
