@@ -1,6 +1,6 @@
 const Joi = require('joi').extend(require('@joi/date'));
 const cpf = require('../../utils/REGEX').cpf;
-
+const EnumCanDrive = require('../../utils/ENUMS/EnumObject').authenticate;
 module.exports = async (req, res, next) => {
 	try{
 		
@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
 			birthday: Joi.date().format('DD/MM/YYYY').required(),
 			email: Joi.string().email().required(),
 			password: Joi.string().min(6).required(),
-			canDrive: Joi.string().valid('yes', 'no').required()
+			canDrive: Joi.string().valid(...EnumCanDrive).required()
 			
 		});
 
