@@ -1,42 +1,43 @@
-const mongoose = require('mongoose');
-const mongoosepaginate = require('mongoose-paginate-v2');
-const EnumFleet = require('../utils/ENUMS/EnumObject').fleet;
-const FleetSchema = new mongoose.Schema({
-	id_car: {
-		type: mongoose.Schema.Types.ObjectId, ref: 'Car',
-		required: true
-	},
-    
-	id_rental: {
-		type: mongoose.Schema.Types.ObjectId, ref: 'Rental',
-		required: true
-	},
+const mongoose = require("mongoose");
+const mongoosepaginate = require("mongoose-paginate-v2");
+const EnumFleet = require("../utils/ENUMS/EnumObject").fleet;
 
-	status: {
-		type: String,
-		enum: EnumFleet ,
-		required: true
+const FleetSchema = new mongoose.Schema(
+  {
+    id_car: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Car",
+      required: true,
+    },
 
-	},
-    
-	daily_value: {
-		type: String,
-		required: true
-	},
-    
-	plate: {
-		type: String,
-		required: true,
-		unique: true
-	},
-		
+    id_rental: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Rental",
+      required: true,
+    },
 
-}, 
-{versionKey: false}
+    status: {
+      type: String,
+      enum: EnumFleet,
+      required: true,
+    },
+
+    daily_value: {
+      type: String,
+      required: true,
+    },
+
+    plate: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+  },
+  { versionKey: false }
 );
 
 FleetSchema.plugin(mongoosepaginate);
 
-const fleet = mongoose.model('Fleet', FleetSchema);
+const fleet = mongoose.model("Fleet", FleetSchema);
 module.exports = fleet;
-//deploy
+// deploy
