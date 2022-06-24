@@ -1,49 +1,51 @@
-const FleetSchema = require('../schema/FleetSchema');
+const FleetSchema = require("../schema/FleetSchema");
 
 class FleetRepository {
-	async createFleet(payload){
-		return await FleetSchema.create(payload);
-	}
-    
-	async listFleet(payload) {
-		const pagination = {
-			totalDocs: 'total',
-			docs: 'fleet',
-			page: 'offset',
-			totalPages: 'offsets',
-			prevPage: false,
-			nextPage: false,
-			pagingCounter: false,
-			meta: false,
-			hasPrevPage: false,
-			hasNextPage: false
-		};
-		const options = {
-			total: 346,
-			limit:100,
-			offset: 0,
-			offsets: 35,
-			customLabels: pagination 
-		};
+  async createFleet(payload) {
+    const response = await FleetSchema.create(payload);
+    return response;
+  }
 
+  async listFleet(payload) {
+    const pagination = {
+      totalDocs: "total",
+      docs: "fleet",
+      page: "offset",
+      totalPages: "offsets",
+      prevPage: false,
+      nextPage: false,
+      pagingCounter: false,
+      meta: false,
+      hasPrevPage: false,
+      hasNextPage: false,
+    };
+    const options = {
+      total: 346,
+      limit: 100,
+      offset: 0,
+      offsets: 35,
+      customLabels: pagination,
+    };
 
-		return await FleetSchema.paginate(payload, options, {});
-	}
+    const response = await FleetSchema.paginate(payload, options, {});
+    return response;
+  }
 
-	async getFleet(payload) {
-		return await FleetSchema.findById(payload);
-	}
+  async getFleet(payload) {
+    const response = await FleetSchema.findById(payload);
+    return response;
+  }
 
-	async updateFleet(id, payload) {
-		return await FleetSchema.findByIdAndUpdate(id, payload);
-	}
+  async updateFleet(id, payload) {
+    const response = await FleetSchema.findByIdAndUpdate(id, payload);
+    return response;
+  }
 
-	async deleteFleet(payload) {
-		return await FleetSchema.findByIdAndDelete(payload);
-	}
-	
-
+  async deleteFleet(payload) {
+    const response = await FleetSchema.findByIdAndDelete(payload);
+    return response;
+  }
 }
 
 module.exports = new FleetRepository();
-//deploy
+// deploy

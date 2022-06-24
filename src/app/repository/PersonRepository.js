@@ -1,49 +1,54 @@
-const PersonSchema = require('../schema/PersonSchema');
+const PersonSchema = require("../schema/PersonSchema");
 
 class PersonRepository {
-	async createPerson(payload){
-		return await PersonSchema.create(payload);
-	}
-    
-	async listPersons(payload) {
-		const pagination = {
-			totalDocs: 'total',
-			docs: 'people',
-			page: 'offset',
-			totalPages: 'offsets',
-			prevPage: false,
-			nextPage: false,
-			pagingCounter: false,
-			meta: false,
-			hasPrevPage: false,
-			hasNextPage: false
-		};
-		const options = {
-			limit:100,
-			offset: 0,
-			customLabels: pagination 
-		};
-		
-		return await PersonSchema.paginate(payload, options, {});
-	}
+  async createPerson(payload) {
+    const response = await PersonSchema.create(payload);
+    return response;
+  }
 
-	async getPerson(payload) {
-		return await PersonSchema.findById(payload);
-	}
+  async listPersons(payload) {
+    const pagination = {
+      totalDocs: "total",
+      docs: "people",
+      page: "offset",
+      totalPages: "offsets",
+      prevPage: false,
+      nextPage: false,
+      pagingCounter: false,
+      meta: false,
+      hasPrevPage: false,
+      hasNextPage: false,
+    };
+    const options = {
+      limit: 100,
+      offset: 0,
+      customLabels: pagination,
+    };
 
-	async updatePerson(id, payload) {
-		return await PersonSchema.findByIdAndUpdate(id, payload);
-	}
+    const response = await PersonSchema.paginate(payload, options, {});
+    return response;
+  }
 
-	async deletePerson(payload) {
-		return await PersonSchema.findByIdAndDelete(payload);
-	}
+  async getPerson(payload) {
+    const response = await PersonSchema.findById(payload);
+    return response;
+  }
 
-	async checkemail(email) {
-		return await PersonSchema.findOne({email}).select('+password');
-	}
+  async updatePerson(id, payload) {
+    const response = await PersonSchema.findByIdAndUpdate(id, payload);
+    return response;
+  }
 
+  async deletePerson(payload) {
+    const response = await PersonSchema.findByIdAndDelete(payload);
+    return response;
+  }
+
+  async checkemail(email) {
+    const response = await PersonSchema.findOne({ email }).select("+password");
+    return response;
+  }
 }
 
 module.exports = new PersonRepository();
-//deploy
+// deploy

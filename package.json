@@ -21,10 +21,11 @@
     "moment": "^2.29.3",
     "mongoose": "^6.3.5",
     "mongoose-paginate-v2": "^1.6.3",
-    "swagger-ui-express": "^4.4.0"
+    "swagger-ui-express": "^4.4.0",
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1",
+   
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-plugin": "^1.0.11",

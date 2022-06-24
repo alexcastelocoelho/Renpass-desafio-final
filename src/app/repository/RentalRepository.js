@@ -1,45 +1,48 @@
-const RentalSchema = require('../schema/RentalSchema');
-//deploy
+const RentalSchema = require("../schema/RentalSchema");
+// deploy
 class RentalRepository {
-	async createRental(payload){
-		return await RentalSchema.create(payload);
-	}
-    
-	async listRents(payload) {
-		const pagination = {
-			totalDocs: 'total',
-			docs: 'rentals',
-			page: 'offset',
-			totalPages: 'offsets',
-			prevPage: false,
-			nextPage: false,
-			pagingCounter: false,
-			meta: false,
-			hasPrevPage: false,
-			hasNextPage: false
-		};
-		const options = {
-			limit:100,
-			offset: 0,
-			customLabels: pagination 
-		};
-		return await RentalSchema.paginate(payload, options, {});
-	}
+  async createRental(payload) {
+    const response = await RentalSchema.create(payload);
+    return response;
+  }
 
-	async getRental(payload) {
-		return await RentalSchema.findById(payload);
-	}
+  async listRents(payload) {
+    const pagination = {
+      totalDocs: "total",
+      docs: "rentals",
+      page: "offset",
+      totalPages: "offsets",
+      prevPage: false,
+      nextPage: false,
+      pagingCounter: false,
+      meta: false,
+      hasPrevPage: false,
+      hasNextPage: false,
+    };
+    const options = {
+      limit: 100,
+      offset: 0,
+      customLabels: pagination,
+    };
+    const response = await RentalSchema.paginate(payload, options, {});
+    return response;
+  }
 
-	async updateRental(id, payload) {
-		return await RentalSchema.findByIdAndUpdate(id, payload);
-	}
+  async getRental(payload) {
+    const response = await RentalSchema.findById(payload);
+    return response;
+  }
 
-	async deleteRental(payload) {
-		return await RentalSchema.findByIdAndDelete(payload);
-	}
-	
+  async updateRental(id, payload) {
+    const response = await RentalSchema.findByIdAndUpdate(id, payload);
+    return response;
+  }
 
+  async deleteRental(payload) {
+    const response = await RentalSchema.findByIdAndDelete(payload);
+    return response;
+  }
 }
 
 module.exports = new RentalRepository();
-//deploy
+// deploy
