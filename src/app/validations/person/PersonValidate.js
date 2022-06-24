@@ -1,13 +1,23 @@
 const Joi = require("joi").extend(require("@joi/date"));
-const { cpf } = require("../../utils/REGEX");
+// const { cpf } = require("../../utils/REGEX");
 const EnumCanDrive = require("../../utils/ENUMS/EnumObject").authenticate;
+const cpfvalid = require("../../utils/CpfCnpjvalid");
 
 module.exports = async (req, res, next) => {
   try {
     const validPerson = Joi.object({
       name: Joi.string().min(3).required(),
-      // eslint-disable-next-line no-useless-escape
-      cpf: Joi.string().regex(cpf).required(),
+      cpf: Joi.string()
+        .custom((cpf, helper) => {
+          const valid = cpfvalid(cpf);
+          if (!valid) {
+            return helper.message(
+              "Invalid CPF, check the format or enter a valid CPF"
+            );
+          }
+          return valid;
+        })
+        .required(),
       birthday: Joi.date().format("DD/MM/YYYY").required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
