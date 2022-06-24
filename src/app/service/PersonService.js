@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 const PersonRepository = require("../repository/PersonRepository");
 const NotExist = require("../errors/personErrors/NotExist");
-const cpf = require("../utils/cpfvalid");
+// const cpf = require("../utils/CpfCnpjvalid");
 
 class PersonService {
   async create(payload) {
-    if (!cpf(payload.cpf)) {
-      throw new Error("Invalid CPF, check the format or enter a valid CPF");
-    }
+    // if (!cpf(payload.cpf)) {
+    //   throw new Error("Invalid CPF, check the format or enter a valid CPF");
+    // }
     const result = await PersonRepository.createPerson(payload);
     return result;
   }
@@ -26,9 +26,9 @@ class PersonService {
   }
 
   async update(id, payload) {
-    if (!cpf(payload.cpf)) {
-      throw new Error("Invalid CPF, check the format or enter a valid CPF");
-    }
+    // if (!cpf(payload.cpf)) {
+    //   throw new Error("Invalid CPF, check the format or enter a valid CPF");
+    // }
     const result = await PersonRepository.updatePerson(id, payload);
     return result;
   }
