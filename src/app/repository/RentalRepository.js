@@ -1,4 +1,4 @@
-const RentalSchema = require("../schema/RentalSchema");
+const RentalSchema = require('../schema/RentalSchema');
 // deploy
 class RentalRepository {
   async createRental(payload) {
@@ -8,21 +8,21 @@ class RentalRepository {
 
   async listRents(payload) {
     const pagination = {
-      totalDocs: "total",
-      docs: "rentals",
-      page: "offset",
-      totalPages: "offsets",
+      totalDocs: 'total',
+      docs: 'rentals',
+      page: 'offset',
+      totalPages: 'offsets',
       prevPage: false,
       nextPage: false,
       pagingCounter: false,
       meta: false,
       hasPrevPage: false,
-      hasNextPage: false,
+      hasNextPage: false
     };
     const options = {
       limit: 100,
       offset: 0,
-      customLabels: pagination,
+      customLabels: pagination
     };
     const response = await RentalSchema.paginate(payload, options, {});
     return response;

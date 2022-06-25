@@ -1,4 +1,4 @@
-const FleetRepository = require("../repository/FleetRepository");
+const FleetRepository = require('../repository/FleetRepository');
 
 class FleetService {
   async create(payload) {

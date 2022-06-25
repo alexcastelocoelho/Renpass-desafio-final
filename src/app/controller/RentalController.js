@@ -1,4 +1,4 @@
-const RentalService = require("../service/RentalService");
+const RentalService = require('../service/RentalService');
 
 class RentalController {
   async creating(req, res) {

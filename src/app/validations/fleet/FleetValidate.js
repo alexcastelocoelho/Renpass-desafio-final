@@ -1,6 +1,6 @@
-const Joi = require("joi").extend(require("@joi/date"));
-const { objectid } = require("../../utils/REGEX");
-const Enumstatus = require("../../utils/ENUMS/EnumObject").fleet;
+const Joi = require('joi').extend(require('@joi/date'));
+const { objectid } = require('../../utils/REGEX');
+const Enumstatus = require('../../utils/ENUMS/EnumObject').fleet;
 
 module.exports = async (req, res, next) => {
   try {
@@ -9,11 +9,11 @@ module.exports = async (req, res, next) => {
       id_rental: Joi.string().regex(objectid),
       status: Joi.string().valid(...Enumstatus),
       daily_value: Joi.number(),
-      plate: Joi.string(),
+      plate: Joi.string()
     });
 
     const { error } = await validFleet.validate(req.body, {
-      abortEarly: false,
+      abortEarly: false
     });
     if (error) throw error;
 
@@ -22,8 +22,8 @@ module.exports = async (req, res, next) => {
     return res.status(400).json({
       errors: error.details.map((alert) => ({
         description: alert.message,
-        name: alert.path.join("."),
-      })),
+        name: alert.path.join('.')
+      }))
     });
   }
 };

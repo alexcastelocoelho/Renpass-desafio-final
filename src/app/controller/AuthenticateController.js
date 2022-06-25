@@ -1,4 +1,4 @@
-const AuthenticaService = require("../service/AuthenticateService");
+const AuthenticaService = require('../service/AuthenticateService');
 
 class AuthenticateController {
   async create(req, res) {

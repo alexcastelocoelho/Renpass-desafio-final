@@ -1,7 +1,7 @@
-const Joi = require("joi").extend(require("@joi/date"));
-const { cpf } = require("../../utils/REGEX");
-const EnumCanDrive = require("../../utils/ENUMS/EnumObject").authenticate;
-const cpfvalid = require("../../utils/CpfCnpjvalid");
+const Joi = require('joi').extend(require('@joi/date'));
+// const { cpf } = require("../../utils/REGEX");
+const EnumCanDrive = require('../../utils/ENUMS/EnumObject').authenticate;
+const cpfvalid = require('../../utils/CpfCnpjvalid');
 
 module.exports = async (req, res, next) => {
   try {
@@ -12,23 +12,21 @@ module.exports = async (req, res, next) => {
         .custom((cpf, helper) => {
           const valid = cpfvalid(cpf);
           if (!valid) {
-            return helper.message(
-              "Invalid CPF, check the format or enter a valid CPF"
-            );
+            return helper.message('Invalid CPF, check the format or enter a valid CPF');
           }
           return valid;
         })
         .required(),
-      birthday: Joi.date().format("DD/MM/YYYY").required(),
+      birthday: Joi.date().format('DD/MM/YYYY').required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
       canDrive: Joi.string()
         .valid(...EnumCanDrive)
-        .required(),
+        .required()
     });
 
     const { error } = await validPerson.validate(req.body, {
-      abortEarly: false,
+      abortEarly: false
     });
     if (error) throw error;
     // if(!cpf(req.body.cpf)) {
@@ -40,8 +38,8 @@ module.exports = async (req, res, next) => {
     return res.status(400).json({
       errors: error.details.map((alert) => ({
         description: alert.message,
-        name: alert.path.join("."),
-      })),
+        name: alert.path.join('.')
+      }))
     });
   }
 };

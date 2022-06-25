@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-const PersonRepository = require("../repository/PersonRepository");
-const NotExist = require("../errors/personErrors/NotExist");
+const PersonRepository = require('../repository/PersonRepository');
+const NotExist = require('../errors/personErrors/NotExist');
 // const cpf = require("../utils/CpfCnpjvalid");
 
 class PersonService {

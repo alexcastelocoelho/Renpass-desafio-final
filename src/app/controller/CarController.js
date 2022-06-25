@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-const CarService = require("../service/CarService");
+const CarService = require('../service/CarService');
 
 class CarController {
   async creating(req, res) {
@@ -42,11 +42,7 @@ class CarController {
     const { id, idaccessories } = req.params;
 
     try {
-      const result = await CarService.updateAcessory(
-        id,
-        idaccessories,
-        req.body
-      );
+      const result = await CarService.updateAcessory(id, idaccessories, req.body);
 
       return res.status(200).json(result);
     } catch (error) {

@@ -1,10 +1,10 @@
-const { Router } = require("express");
-const Car = require("./CarRouter");
-const Person = require("./PersonRouter");
-const authenticate = require("./authenticateRouter");
-const Rental = require("./RentalRouter");
-const Reserve = require("./ReserveRouter");
-const Fleet = require("./FleetRouter");
+const { Router } = require('express');
+const Car = require('./CarRouter');
+const Person = require('./PersonRouter');
+const authenticate = require('./authenticateRouter');
+const Rental = require('./RentalRouter');
+const Reserve = require('./ReserveRouter');
+const Fleet = require('./FleetRouter');
 
 module.exports = (server) => {
   server.use((req, res, next) => {

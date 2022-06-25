@@ -1,4 +1,4 @@
-const PersonService = require("../service/PersonService");
+const PersonService = require('../service/PersonService');
 
 class PersonController {
   async creating(req, res) {
@@ -26,7 +26,7 @@ class PersonController {
     } catch (error) {
       return res.status(400).json({
         description: error.description,
-        name: error.message,
+        name: error.message
       });
     }
   }

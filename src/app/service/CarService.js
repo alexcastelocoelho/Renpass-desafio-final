@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-const CarRepository = require("../repository/CarRepository");
-const IdNotFound = require("../errors/CarErrors/IdNotFound");
+const CarRepository = require('../repository/CarRepository');
+const IdNotFound = require('../errors/CarErrors/IdNotFound');
 
 class CarService {
   async create(payload) {
@@ -30,11 +30,7 @@ class CarService {
   }
 
   async updateAcessory(paylaod, id, idaccessories) {
-    const result = await CarRepository.updateCarAccessory(
-      paylaod,
-      id,
-      idaccessories
-    );
+    const result = await CarRepository.updateCarAccessory(paylaod, id, idaccessories);
     return result;
   }
 

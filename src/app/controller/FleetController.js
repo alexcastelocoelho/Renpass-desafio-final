@@ -1,4 +1,4 @@
-const FleetService = require("../service/FleetService");
+const FleetService = require('../service/FleetService');
 
 class ReserveController {
   async creating(req, res) {

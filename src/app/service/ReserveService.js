@@ -1,4 +1,4 @@
-const ReserveRepository = require("../repository/ReserveRepository");
+const ReserveRepository = require('../repository/ReserveRepository');
 
 class RentalService {
   async create(payload) {

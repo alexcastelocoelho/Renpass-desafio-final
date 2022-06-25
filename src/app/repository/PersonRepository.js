@@ -1,4 +1,4 @@
-const PersonSchema = require("../schema/PersonSchema");
+const PersonSchema = require('../schema/PersonSchema');
 
 class PersonRepository {
   async createPerson(payload) {
@@ -8,21 +8,21 @@ class PersonRepository {
 
   async listPersons(payload) {
     const pagination = {
-      totalDocs: "total",
-      docs: "people",
-      page: "offset",
-      totalPages: "offsets",
+      totalDocs: 'total',
+      docs: 'people',
+      page: 'offset',
+      totalPages: 'offsets',
       prevPage: false,
       nextPage: false,
       pagingCounter: false,
       meta: false,
       hasPrevPage: false,
-      hasNextPage: false,
+      hasNextPage: false
     };
     const options = {
       limit: 100,
       offset: 0,
-      customLabels: pagination,
+      customLabels: pagination
     };
 
     const response = await PersonSchema.paginate(payload, options, {});
@@ -45,7 +45,7 @@ class PersonRepository {
   }
 
   async checkemail(email) {
-    const response = await PersonSchema.findOne({ email }).select("+password");
+    const response = await PersonSchema.findOne({ email }).select('+password');
     return response;
   }
 }

@@ -1,4 +1,4 @@
-const CarSchema = require("../schema/CarSchema");
+const CarSchema = require('../schema/CarSchema');
 
 class CarRepository {
   async createCar(payload) {
@@ -8,21 +8,21 @@ class CarRepository {
 
   async listCars(payload) {
     const pagination = {
-      totalDocs: "total",
-      docs: "vehicles",
-      page: "offset",
-      totalPages: "offsets",
+      totalDocs: 'total',
+      docs: 'vehicles',
+      page: 'offset',
+      totalPages: 'offsets',
       prevPage: false,
       nextPage: false,
       pagingCounter: false,
       meta: false,
       hasPrevPage: false,
-      hasNextPage: false,
+      hasNextPage: false
     };
     const options = {
       limit: 100,
       offset: 0,
-      customLabels: pagination,
+      customLabels: pagination
     };
     const response = await CarSchema.paginate(payload, options, {});
 
@@ -41,8 +41,8 @@ class CarRepository {
 
   async updateCarAccessory(id, idaccessories, payload) {
     const response = await CarSchema.findOneAndUpdate(
-      { _id: id, "accessories._id": idaccessories },
-      { $set: { "accessories.$.description": payload.description } },
+      { _id: id, 'accessories._id': idaccessories },
+      { $set: { 'accessories.$.description': payload.description } },
       { new: true }
     );
     return response;

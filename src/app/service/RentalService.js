@@ -1,12 +1,12 @@
 /* eslint-disable no-sequences */
-const RentalRepository = require("../repository/RentalRepository");
-const ViacCep = require("../utils/ViaCep");
-const Cnpj = require("../utils/CnpjValid");
+const RentalRepository = require('../repository/RentalRepository');
+const ViacCep = require('../utils/ViaCep');
+const Cnpj = require('../utils/CpfCnpjvalid');
 
 class RentalService {
   async create(payload) {
     if (!Cnpj(payload.cnpj)) {
-      throw new Error("invalid cnpj, check the format or enter a valid one");
+      throw new Error('invalid cnpj, check the format or enter a valid one');
     }
 
     let x = 0;

@@ -1,21 +1,21 @@
-const mongoose = require("mongoose");
-const mongoosepaginate = require("mongoose-paginate-v2");
+const mongoose = require('mongoose');
+const mongoosepaginate = require('mongoose-paginate-v2');
 
 const RentalSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     cnpj: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
 
     activities: {
       type: String,
-      required: true,
+      required: true
     },
 
     address: [
@@ -23,42 +23,42 @@ const RentalSchema = new mongoose.Schema(
         _id: false,
         zipCode: {
           type: String,
-          required: true,
+          required: true
         },
         number: {
           type: String,
-          required: true,
+          required: true
         },
         complement: {
-          type: String,
+          type: String
         },
         isfilial: {
           type: Boolean,
-          required: true,
+          required: true
         },
         street: {
           type: String,
-          required: true,
+          required: true
         },
         district: {
           type: String,
-          required: true,
+          required: true
         },
         city: {
           type: String,
-          required: true,
+          required: true
         },
         state: {
           type: String,
-          required: true,
-        },
-      },
-    ],
+          required: true
+        }
+      }
+    ]
   },
   { versionKey: false }
 );
 RentalSchema.plugin(mongoosepaginate);
-const rental = mongoose.model("Rental", RentalSchema);
+const rental = mongoose.model('Rental', RentalSchema);
 module.exports = rental;
 
 // deploy

@@ -3,7 +3,7 @@ class IdNotFound extends Error {
     super();
 
     this.statusCode = 400;
-    this.description = "Id not Exist";
+    this.description = 'Id not Exist';
     this.message = `id ${id} not found`;
   }
 }

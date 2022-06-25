@@ -1,4 +1,4 @@
-const ReserveSchema = require("../schema/ReserveSchema");
+const ReserveSchema = require('../schema/ReserveSchema');
 
 class ReserveRepository {
   async createReserve(payload) {
@@ -8,23 +8,23 @@ class ReserveRepository {
 
   async listReserve(payload) {
     const pagination = {
-      totalDocs: "total",
-      docs: "reserves",
-      page: "offset",
-      totalPages: "offsets",
+      totalDocs: 'total',
+      docs: 'reserves',
+      page: 'offset',
+      totalPages: 'offsets',
       prevPage: false,
       nextPage: false,
       pagingCounter: false,
       meta: false,
       hasPrevPage: false,
-      hasNextPage: false,
+      hasNextPage: false
     };
     const options = {
       total: 346,
       limit: 100,
       offset: 1,
       offsets: 35,
-      customLabels: pagination,
+      customLabels: pagination
     };
 
     const response = await ReserveSchema.paginate(payload, options, {});

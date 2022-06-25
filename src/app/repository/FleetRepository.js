@@ -1,4 +1,4 @@
-const FleetSchema = require("../schema/FleetSchema");
+const FleetSchema = require('../schema/FleetSchema');
 
 class FleetRepository {
   async createFleet(payload) {
@@ -8,23 +8,23 @@ class FleetRepository {
 
   async listFleet(payload) {
     const pagination = {
-      totalDocs: "total",
-      docs: "fleet",
-      page: "offset",
-      totalPages: "offsets",
+      totalDocs: 'total',
+      docs: 'fleet',
+      page: 'offset',
+      totalPages: 'offsets',
       prevPage: false,
       nextPage: false,
       pagingCounter: false,
       meta: false,
       hasPrevPage: false,
-      hasNextPage: false,
+      hasNextPage: false
     };
     const options = {
       total: 346,
       limit: 100,
       offset: 0,
       offsets: 35,
-      customLabels: pagination,
+      customLabels: pagination
     };
 
     const response = await FleetSchema.paginate(payload, options, {});

@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 module.exports = async (req, res, next) => {
   try {
@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
       color: Joi.string().required(),
       year: Joi.number().min(1950).max(2022).required(),
       accessories: Joi.array().min(1).unique().required(),
-      passengersQtd: Joi.number().min(1).required(),
+      passengersQtd: Joi.number().min(1).required()
     });
 
     const { error } = await validcar.validate(req.body, { abortEarly: false });
@@ -19,8 +19,8 @@ module.exports = async (req, res, next) => {
     return res.status(400).json({
       errors: error.details.map((alert) => ({
         description: alert.message,
-        name: alert.path.join("."),
-      })),
+        name: alert.path.join('.')
+      }))
     });
   }
 };

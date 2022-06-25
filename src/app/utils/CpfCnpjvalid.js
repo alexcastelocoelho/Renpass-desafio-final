@@ -3,9 +3,9 @@ function testCpfCnpj(val) {
   if (val.length == 14) {
     let cpf = val.trim();
 
-    cpf = cpf.replace(/\./g, "");
-    cpf = cpf.replace("-", "");
-    cpf = cpf.split("");
+    cpf = cpf.replace(/\./g, '');
+    cpf = cpf.replace('-', '');
+    cpf = cpf.split('');
 
     let v1 = 0;
     let v2 = 0;
@@ -53,10 +53,10 @@ function testCpfCnpj(val) {
   if (val.length == 18) {
     let cnpj = val.trim();
 
-    cnpj = cnpj.replace(/\./g, "");
-    cnpj = cnpj.replace("-", "");
-    cnpj = cnpj.replace("/", "");
-    cnpj = cnpj.split("");
+    cnpj = cnpj.replace(/\./g, '');
+    cnpj = cnpj.replace('-', '');
+    cnpj = cnpj.replace('/', '');
+    cnpj = cnpj.split('');
 
     let v1 = 0;
     let v2 = 0;
