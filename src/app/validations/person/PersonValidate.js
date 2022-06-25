@@ -2,6 +2,7 @@ const Joi = require('joi').extend(require('@joi/date'));
 // const { cpf } = require("../../utils/REGEX");
 const EnumCanDrive = require('../../utils/ENUMS/EnumObject').authenticate;
 const cpfvalid = require('../../utils/CpfCnpjvalid');
+const AgeValid = require('../../utils/AgeValid');
 
 module.exports = async (req, res, next) => {
   try {
@@ -16,7 +17,16 @@ module.exports = async (req, res, next) => {
           return valid;
         })
         .required(),
-      birthday: Joi.date().format('DD/MM/YYYY').required(),
+      birthday: Joi.date()
+        .custom((birthday, helper) => {
+          const valid = AgeValid(birthday);
+          if (valid < 18) {
+            return helper.message('you must be at least 18 years old');
+          }
+          return valid;
+        })
+        .format('DD/MM/YYYY')
+        .required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
       canDrive: Joi.string()
