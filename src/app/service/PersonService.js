@@ -30,11 +30,17 @@ class PersonService {
     //   throw new Error("Invalid CPF, check the format or enter a valid CPF");
     // }
     const result = await PersonRepository.updatePerson(id, payload);
+    if (!result) {
+      throw new NotExist(id);
+    }
     return result;
   }
 
   async delete(payload) {
     const result = await PersonRepository.deletePerson(payload);
+    if (!result) {
+      throw new NotExist(payload);
+    }
   }
 }
 

@@ -36,6 +36,9 @@ class CarService {
 
   async delete(payload) {
     const result = await CarRepository.deleteCar(payload);
+    if (!result) {
+      throw new IdNotFound(payload);
+    }
   }
 }
 
