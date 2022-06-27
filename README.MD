@@ -47,9 +47,12 @@ create an .env file and set the environment variables. use the .env.example file
  ```
     APP_URL=
     DB_HOST=
+    MONGO_ATLAS=
     DB_USER=
     DB_PASS=
+    DB_NAME=
     DB_COLLECTION=
+    SECRET=
 
  ```
  
